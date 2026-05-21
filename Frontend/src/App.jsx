@@ -1,9 +1,9 @@
-import ComingSoon from "./pages/comingSoon/comingSoon"
+import MainRoutes from "./routes/MainRoutes"
 
 const App = () => {
   return (
     <div>
-      <ComingSoon />
+      <MainRoutes />
     </div>
   )
 }
