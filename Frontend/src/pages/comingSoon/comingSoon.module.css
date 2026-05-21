@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, var(--coming-soon-page-radial-top), transparent 34%),
+    radial-gradient(circle at bottom right, var(--coming-soon-page-radial-bottom), transparent 28%),
+    var(--coming-soon-page-bg);
+  font-family: var(--font-family4);
+  padding: 32px;
+  color: var(--coming-soon-text);
+}
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container::before {
+  background-image: radial-gradient(var(--coming-soon-grid-line) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+}
+
+.container::after {
+  background: var(--coming-soon-sheen);
+  opacity: 0.8;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--coming-soon-backdrop);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+}
+
+.heroCard {
+  border: 1px solid var(--coming-soon-card-border);
+  background: var(--coming-soon-card-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: clamp(28px, 6vw, 56px);
+  text-align: center;
+  box-shadow: 0 24px 80px var(--coming-soon-shadow);
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--coming-soon-chip-bg);
+  border: 1px solid var(--coming-soon-chip-border);
+  color: rgba(245, 241, 235, 0.82);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.title {
+  font-family: var(--font-family6);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  max-width: 12ch;
+  margin: 0 auto;
+}
+
+.subtitle {
+  max-width: 44rem;
+  margin: 18px auto 0;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--coming-soon-text-muted);
+}
+
+.launchRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 30px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: var(--coming-soon-soft-surface);
+  border: 1px solid var(--coming-soon-soft-surface-border);
+}
+
+.launchLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--coming-soon-text-soft);
+}
+
+.launchDate {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--coming-soon-accent);
+}
+
+.countdownSection {
+  margin-top: 34px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.timeBox {
+  padding: 18px 10px 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--coming-soon-soft-surface-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeValue {
+  font-family: var(--font-family6);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--coming-soon-counter);
+}
+
+.timeLabel {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--coming-soon-text-soft);
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--coming-soon-soft-surface-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--coming-soon-text);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.socialIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.socialIcon:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(246, 177, 143, 0.45);
+  color: var(--coming-soon-accent);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 18px;
+  }
+
+  .heroCard {
+    padding: 28px 22px;
+  }
+
+  .title {
+    max-width: 14ch;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
+  }
+
+  .countdown {
+    gap: 10px;
+  }
+
+  .socialLinks {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .socialIcon {
+    width: 42px;
+    height: 42px;
+  }
+}
