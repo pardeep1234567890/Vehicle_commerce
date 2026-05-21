@@ -86,7 +86,7 @@ const ComingSoon = () => {
           <p className={styles.kicker}>AutoHub</p>
           <h1 className={styles.title}>The only place to buy your next vehicle.</h1>
           <p className={styles.subtitle}>
-            Shop directly on our website and complete every purchase with the dealer/admin handling the sale from start to finish.
+            Shop directly on our website and complete every purchase with the dealer handling the sale from start to finish.
           </p>
 
           <div className={styles.launchRow}>
